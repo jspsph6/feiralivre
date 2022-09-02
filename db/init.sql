@@ -1,13 +1,13 @@
 USE fair;
 
-CREATE TABLE user (
+CREATE TABLE IF NOT EXISTS user (
     id int not null auto_increment,
     login varchar(255) not null,
     hash varchar(255) not null,
     PRIMARY KEY (id)
 );
 
-CREATE TABLE district (
+CREATE TABLE IF NOT EXISTS district (
     id int not null auto_increment,
     code int not null,
     code_subprefecture int not null,
@@ -18,7 +18,7 @@ CREATE TABLE district (
     PRIMARY KEY (id)
 );
 
-CREATE TABLE fair (
+CREATE TABLE IF NOT EXISTS fair (
     id int not null auto_increment,
     setcens int not null,
     name varchar(255) not null,
@@ -28,7 +28,7 @@ CREATE TABLE fair (
     FOREIGN KEY (id_district) REFERENCES district(id)
 );
 
-CREATE TABLE address (
+CREATE TABLE IF NOT EXISTS address (
     id int not null auto_increment,
     street varchar(255) not null,
     number varchar(255) null,
